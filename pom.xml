@@ -21,6 +21,8 @@
 
   <modules>
     <module>CustomerAuthenticationService</module>
+    <module>CustomerPizzaService</module>
+    <module>ApiGateway</module>
   </modules>
 
   <dependencies>
