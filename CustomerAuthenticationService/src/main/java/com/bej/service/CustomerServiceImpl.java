@@ -6,6 +6,7 @@
 
 package com.bej.service;
 
+import com.bej.exception.CustomerAlreadyExists;
 import com.bej.domain.Customer;
 import com.bej.exception.CustomerNotFoundException;
 import com.bej.repository.CustomerRepository;
@@ -21,11 +22,19 @@ public class CustomerServiceImpl implements CustomerService {
         this.customerRepository = customerRepository;
     }
 
+    public Customer saveUser(Customer customer) throws CustomerAlreadyExists {
+        if(customerRepository.findById(customer.getEmail()).isPresent())
+        {
+            throw new CustomerAlreadyExists();
+        }
+        System.out.println(customer);
+        return customerRepository.save(customer);
+    }
 
     @Override
     public Customer findByEmailAndPassword(String email, String password) throws CustomerNotFoundException {
-        System.out.println("email"+email);
-        System.out.println("password"+password);
+        System.out.println("email: "+email);
+        System.out.println("password: "+password);
         Customer loggedInUser = customerRepository.findByEmailAndPassword(email,password);
         System.out.println(loggedInUser);
         if(loggedInUser == null)

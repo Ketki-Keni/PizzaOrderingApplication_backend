@@ -18,11 +18,14 @@ public class AppConfig {
     public RouteLocator myRoutes(RouteLocatorBuilder routeLocatorBuilder){
         return routeLocatorBuilder.routes()
                 .route(p->p.path("/api/v1/**")
-//                        .uri("http://localhost:8082/"))
+//                        .uri("http://localhost:8083/"))
                         .uri("lb://customer-authentication-service"))
                 .route(p->p.path("/api/v2/**")
-//                        .uri("http://localhost:8083/"))
+//                        .uri("http://localhost:8082/"))
                         .uri("lb://customer-pizza-service"))
+                .route(p->p.path("/api/v3/**")
+//                        .uri("http://localhost:8084/"))
+                        .uri("lb://menu-service"))
                 .build();
     }
 }

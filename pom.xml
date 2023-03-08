@@ -23,6 +23,8 @@
     <module>CustomerAuthenticationService</module>
     <module>CustomerPizzaService</module>
     <module>ApiGateway</module>
+    <module>EurekaServer</module>
+    <module>MenuService</module>
   </modules>
 
   <dependencies>

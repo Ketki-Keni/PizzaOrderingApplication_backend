@@ -14,9 +14,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Pizza {
     @Id
-    private String id;
+    private int id;
+    private String imageUrl;
     private String itemName;
     private String category;
     private int price;
+    private int quantity;
 
 }
